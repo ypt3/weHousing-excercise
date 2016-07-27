@@ -1,0 +1,23 @@
+<div>
+	<h3>{{apartments[0].length}} Apartments</h3>
+	<div ng-class="{'selected': isSelected('-popularity')}" ng-click="select('-popularity')">Popularity</div>
+	<div ng-class="{'selected: isSelected('-price')'}" ng-click="select('-price')">Price</div>
+	<div class='apt' ng-repeat="apartment in apartments | orderBy: order() | showPage: currentPg:pages" ng-class="{'highlighted': isHighlighted(apartment.id)}" ng-class="{'hightlighted': isHighlighted(apartment.id)}" ng-mouseenter="highlight(apartment.id)" ng-mouseleave="highlight(null)" ng-click="openInfo(apartment)">
+		<div class="picture">
+			<img src="{apartment.image}" alt="apartment pic">
+		</div>
+		<div class="info">
+			<h1 class="name">{{apartment.name}}</h1>
+			<hr>
+			<p>{{apartment.description}}</p>
+			<span>From<span>${{apartment.price}}</span></span>
+			<br>
+			<span class='unit'>USD/Month</span>
+		</div>
+	</div>
+	<div class="pagination">
+		<button ng-disabled="!hasPrevPg()" ng-click="prev()">Previous</button>
+		<span>{{currentPg}}/{{maxPg}}</span>
+		<button ng-disabled="!hasNext()" ng-click="next()">Next</button>
+	</div>
+</div>
