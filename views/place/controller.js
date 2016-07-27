@@ -14,7 +14,7 @@ angular
 		$scope.currentPg = 1;
 		$scope.maxPg = 0;
 
-		$http.get('apartment.json').then(function saveApt(json) {
+		$http.get('/coding-excerise/apartment.json').then(function saveApt(json) {
 			$scope.apartments = json.apartments.map(function fixImgUrl(apt, index) {
 				apt.id = index + 1;
 				apt.image = '/coding-excerise/images' + apt.image;
