@@ -17,7 +17,7 @@ angular
 		$http.get('apartment.json').then(function saveApt(json) {
 			$scope.apartments = json.apartments.map(function fixImgUrl(apt, index) {
 				apt.id = index + 1;
-				apt.image = '/coding-excerise/images' + apartment.image;
+				apt.image = '/coding-excerise/images' + apt.image;
 				return apt;
 			});
 			$scope.maxPg = Math.ceil($scope.apartments.length/ $scope.pages);
